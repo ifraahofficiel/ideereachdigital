@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Idée'Reach Digital — De l'idée à la performance digitale</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <meta name="description" content="Idée'Reach Digital — De l'idée à la performance digitale. Développé par Ifrahima Ba.">
+
+  <style>
+    :root{
+      --bg:#070909;
+      --card:#0f1416;
+      --primary:#13c0ff; /* bright cyan */
+      --muted:#9aa6ad;
+      --glass: rgba(255,255,255,0.03);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;background:radial-gradient(1000px 600px at 10% 10%, rgba(19,192,255,0.03), transparent), var(--bg);color:#e6f7ff}
+    a{color:var(--primary)}
+    /* Header */
+    .navbar{backdrop-filter: blur(6px);background:transparent}
+    .nav-brand{display:flex;align-items:center;gap:.8rem}
+    .logo-wrap img{width:72px;height:auto;filter:drop-shadow(0 6px 24px rgba(19,192,255,0.08))}
+
+    /* Hero */
+    .hero{min-height:80vh;display:flex;align-items:center}
+    .hero-left{max-width:720px}
+    .title{font-size:clamp(28px,5.5vw,56px);line-height:1.02;font-weight:800;color:var(--primary);letter-spacing:-0.02em}
+    .subtitle{font-size:clamp(14px,2.1vw,18px);color:var(--muted);margin-top:.6rem}
+
+    /* Animated welcome */
+    .welcome-wrap{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:60;display:flex;gap:.6rem;align-items:center}
+    .pill{background:linear-gradient(90deg, rgba(19,192,255,0.12), rgba(19,192,255,0.06));padding:.6rem 1rem;border-radius:999px;color:var(--primary);backdrop-filter: blur(6px);box-shadow:0 6px 30px rgba(2,6,12,0.6)}
+    .welcome-text{font-weight:700;letter-spacing:0.04em}
+    .welcome-anim{display:inline-block;overflow:hidden;vertical-align:middle;height:1.2em}
+    .welcome-anim span{display:inline-block;transform:translateY(100%);animation:slideIn 3s linear infinite}
+    @keyframes slideIn{0%{transform:translateY(100%)}10%{transform:translateY(0)}40%{transform:translateY(0)}50%{transform:translateY(-100%)}60%{transform:translateY(-100%)}100%{transform:translateY(0)}}
+
+    /* Cards */
+    .service-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.015));border:1px solid rgba(255,255,255,0.03);padding:1.6rem;border-radius:14px;transition:transform .35s,box-shadow .35s}
+    .service-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(2,6,12,0.6)}
+
+    /* Glow logo */
+    .logo-neon{filter:drop-shadow(0 6px 18px rgba(19,192,255,0.24));}
+
+    /* Footer */
+    footer{border-top:1px solid rgba(255,255,255,0.03);padding-top:2rem;padding-bottom:2rem;margin-top:4rem}
+
+    /* Responsive tweaks */
+    @media (max-width:768px){.hero{padding-top:4rem}.welcome-wrap{top:8px}}
+
+    /* Fancy CTA */
+    .btn-neon{background:linear-gradient(90deg,var(--primary),#7ff0ff);color:#042229;border:none;padding:.75rem 1.1rem;border-radius:999px;font-weight:700;box-shadow:0 8px 30px rgba(19,192,255,0.08)}
+    .muted{color:var(--muted)}
+
+    /* Simple reveal animations */
+    .reveal{opacity:0;transform:translateY(10px);transition:opacity .7s ease, transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* WhatsApp button adjustments */
+    .whatsapp-btn svg{display:block}
+  </style>
+</head>
+<body>
+
+  <!-- Animated Welcome pill -->
+  <div class="welcome-wrap" aria-hidden="false">
+    <div class="pill">
+      <div style="display:flex;align-items:center;gap:.6rem">
+        <strong class="welcome-text">WELCOME</strong>
+        <div class="welcome-anim" aria-live="polite"><span id="welcome-rotator">BIENVENU SUR IFRAAHOFFICIEL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-dark container py-3">
+    <a class="navbar-brand nav-brand" href="#">
+      <div class="logo-wrap">
+        <!-- Use the provided logo file next to the HTML file -->
+        <img src="Logo Idée'Reach Digital en Néon.png" alt="Idée'Reach Digital" class="logo-neon">
+      </div>
+      <div style="line-height:1">
+        <div style="font-weight:800;color:var(--primary);font-size:.95rem">Idée'Reach Digital</div>
+        <div style="font-size:.78rem;color:var(--muted);margin-top:-2px">De l'idée à la performance digitale</div>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <main class="container hero">
+    <div class="row w-100 gx-5 align-items-center">
+      <div class="col-lg-7 hero-left">
+        <h1 class="title reveal">Idée'Reach Digital : <br><span style="color:#c5f7ff">De l'idée à la performance digitale</span></h1>
+        <p class="subtitle reveal">Créons des identités visuelles puissantes, des sites web ultra‑modernes et des solutions technologiques de haut niveau.</p>
+
+        <div class="mt-4 reveal">
+          <a class="btn btn-neon btn-lg me-3" href="#contact">Contactez-moi</a>
+          <a class="btn btn-outline-light btn-lg" href="#services">Découvrir les services</a>
+        </div>
+
+        <div class="mt-5 reveal">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="service-card">
+                <h5 style="color:var(--primary);margin-bottom:.35rem">Développement Web</h5>
+                <p class="muted" style="margin-bottom:0">Sites modernes, PWA, dashboards et intégration IA.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service-card">
+                <h5 style="color:var(--primary);margin-bottom:.35rem">Applications Mobiles</h5>
+                <p class="muted" style="margin-bottom:0">iOS & Android, UX soignée, performances natives.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-5 text-center reveal">
+        <div style="background:linear-gradient(180deg, rgba(19,192,255,0.03), transparent);padding:2rem;border-radius:16px;border:1px solid rgba(255,255,255,0.02);max-width:420px;margin-left:auto">
+          <img src="Logo Idée'Reach Digital en Néon.png" alt="logo" style="max-width:220px;display:block;margin:0 auto 1rem" class="logo-neon">
+          <p class="muted">Ifrahima Ba — Développeur d'application web & mobile</p>
+          <div class="mt-3"><a class="btn btn-sm btn-outline-light" href="#contact">Me contacter</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ABOUT -->
+  <section id="about" class="container mt-5">
+    <div class="row align-items-center">
+      <div class="col-lg-6 reveal">
+        <h3>À propos</h3>
+        <p class="muted">Je suis <strong>Ifrahima Ba</strong>, développeur web & mobile professionnel. Tout ce que vous voyez ici est conçu et codé manuellement par moi — aucune IA ne remplace mon travail. Cependant, dans un monde où l'intelligence artificielle est devenue un fléau incontournable, je maîtrise parfaitement ces outils pour rester en avance, optimiser les processus et offrir des solutions encore plus performantes. J'accompagne les PME et startups pour transformer leurs idées en produits digitaux performants.</p>
+        <p class="muted">Avec Idée'Reach, votre idée devient notre mission essentielle — transformée avec rigueur, créativité et expertise, du prototypage rapide jusqu'au déploiement et à la performance mesurable.</p>
+      </div>
+      <div class="col-lg-6 reveal text-center">
+        <img src="1759237629302.jpg" alt="Photo professionnelle Ifrahima Ba" style="max-width:360px;width:100%;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,0.35);">
+        <div class="p-4 service-card mt-4">
+          <h5 style="color:var(--primary)">Compétences</h5>
+          <ul class="muted mb-0">
+            <li>Développement Frontend & Backend</li>
+            <li>Applications mobiles (React Native / Flutter)</li>
+            <li>Intégration et modèles IA (NLP, vision, recommandation)</li>
+            <li>Architecture cloud & déploiement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="container mt-5">
+    <h3 class="reveal">Services — Expertise Digitale & Design Professionnel</h3>
+    <div class="row g-4 mt-2">
+      <div class="col-md-4 reveal">
+        <div class="service-card h-100">
+          <h5 style="color:var(--primary)">Sites Web Modernes & Technologie</h5>
+          <p class="muted">Sites web rapides, futuristes, responsive, intégration IA et animations professionnelles.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="service-card h-100">
+          <h5 style="color:var(--primary)">Affiches Modernes & Identité Visuelle</h5>
+          <p class="muted">Création d'affiches premium, flyers futuristes, bannières professionnelles et identité visuelle moderne.</p>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal">
+        <div class="service-card h-100">
+          <h5 style="color:var(--primary)">CV Professionnels & Logos Modernes</h5>
+          <p class="muted">Conception de CV haut de gamme, logos minimalistes, élégants et adaptés au branding moderne.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container mt-5">
+    <div class="row">
+      <div class="col-lg-6 reveal">
+        <h3>Contact</h3>
+        <p class="muted">Pour toute demande, audit ou projet :</p>
+        <ul class="muted">
+          <li><strong>Email :</strong> <a href="mailto:ifrahimaba96@gmail.com">ifrahimaba96@gmail.com</a></li>
+          <li><strong>Téléphone :</strong> <a href="tel:+221774567934">+221 77 456 79 34</a></li>
+          <li><strong>Développé par :</strong> Ifrahima Ba</li>
+        </ul>
+      </div>
+      <div class="col-lg-6 reveal">
+        <form class="p-4 service-card" onsubmit="return false;">
+          <div class="mb-3">
+            <label class="form-label">Nom</label>
+            <input class="form-control" placeholder="Votre nom">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input class="form-control" placeholder="Votre email">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="4" placeholder="Expliquez votre projet..."></textarea>
+          </div>
+          <div class="text-end"><button type="button" class="btn btn-neon">Envoyer</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <p class="muted mb-0">© <strong>Idée'Reach Digital</strong> <span id="year"></span> — Développé par Ifrahima Ba</p>
+      </div>
+      <div class="col-md-6 text-md-end muted">
+        
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // All DOM interactions run after DOMContentLoaded to avoid null elements
+    document.addEventListener('DOMContentLoaded', () => {
+      // Reveal on scroll
+      const reveals = document.querySelectorAll('.reveal');
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
+      },{threshold:0.12});
+      reveals.forEach(r=>io.observe(r));
+
+      // Cycle welcome text safely after DOM ready
+      const rotator = document.getElementById('welcome-rotator');
+      if(rotator){
+        const messages = ['BIENVENU SUR IFRAAHOFFICIEL','BIENVENUE — IFRAHIMA BA','IDÉE\'REACH DIGITAL'];
+        let idx = 0;
+        // initialize content explicitly (defensive)
+        rotator.textContent = messages[0];
+        setInterval(()=>{ idx=(idx+1)%messages.length; rotator.textContent = messages[idx]; }, 3200);
+      }
+
+      // Year auto-update
+      const yearEl = document.getElementById('year');
+      if(yearEl) yearEl.textContent = new Date().getFullYear();
+
+      // Image fallback
+      document.querySelectorAll('img').forEach(img=>{
+        img.addEventListener('error',()=>{ img.style.opacity=.5; img.alt="Logo manquant — placez le fichier 'Logo Idée\'Reach Digital en Néon.png' à côté de ce fichier." });
+      });
+
+    });
+  </script>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/221774567934?text=Bonjour%20IdeeReach%2C%20je%20souhaite%20discuter%20du%20prix%20et%20obtenir%20un%20devis." class="whatsapp-btn" target="_blank" rel="noopener" aria-label="Discuter sur WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="white" viewBox="0 0 16 16" aria-hidden="true"><path d="M13.601 2.326A7.854 7.854 0 0 0 8.017.003C3.651 0 .104 3.547.101 7.913c0 1.395.365 2.758 1.057 3.965L.01 16l4.204-1.102a7.903 7.903 0 0 0 3.8.968h.004c4.365 0 7.912-3.547 7.914-7.913a7.88 7.88 0 0 0-2.331-5.627m-5.584 12.64h-.003a6.54 6.54 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.25a6.56 6.56 0 0 1-1.007-3.505c.002-3.626 2.958-6.582 6.586-6.582a6.56 6.56 0 0 1 4.66 1.932 6.52 6.52 0 0 1 1.922 4.66c-.002 3.626-2.958 6.588-6.58 6.588m3.615-4.935c-.197-.098-1.17-.578-1.353-.644-.182-.067-.315-.098-.446.098-.132.197-.513.644-.63.776-.115.132-.232.148-.43.05-.197-.098-.832-.307-1.585-.981-.586-.522-.98-1.165-1.095-1.362-.115-.197-.012-.303.086-.4.089-.088.197-.232.296-.346.1-.115.132-.197.198-.33.066-.132.033-.247-.017-.346-.05-.099-.446-1.076-.611-1.474-.16-.384-.323-.332-.446-.338a8.52 8.52 0 0 0-.382-.007c-.132 0-.346.05-.53.247-.182.197-.697.68-.697 1.656 0 .977.713 1.916.813 2.049.099.132 1.404 2.14 3.403 3.005.476.205.846.326 1.134.418.477.152.91.131 1.252.08.382-.057 1.17-.48 1.334-.943.165-.462.165-.857.115-.943-.05-.084-.18-.132-.376-.23"/></svg>
+  </a>
+
+  <style>
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: linear-gradient(135deg, #128C7E, #25D366);
+      color: white;
+      font-size: 30px;
+      padding: 14px 18px;
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: all 0.35s ease;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.12) translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+      background: linear-gradient(135deg, #0f7a6c, #1fb85b);
+    }
+  </style>
+</body>
+</html>
