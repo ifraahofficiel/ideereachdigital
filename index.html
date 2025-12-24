@@ -4,14 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Agence digitale au Sénégal | Idée'Reach DIGITAL</title>
+<title>Idée’Reach Digital | Agence digitale au Sénégal</title>
 
-<!-- SEO -->
-<meta name="description" content="Agence digitale virtuelle au Sénégal spécialisée en création de sites web, logos, branding et CV professionnels à Dakar, Mboro et Darou Khoudoss.">
-<meta name="keywords" content="agence digitale Sénégal, création site web Dakar, logo professionnel Sénégal, CV professionnel Dakar">
-<meta name="author" content="Idée'Reach DIGITAL">
-<meta name="robots" content="index, follow">
+<meta name="description" content="Idée’Reach Digital propose des solutions digitales modernes : CV professionnels, logos, affiches, sites web et contenus visuels au Sénégal.">
+<meta name="keywords" content="Idée’Reach Digital, CV professionnel Sénégal, création site web Sénégal, logo moderne, agence digitale Sénégal">
+<meta name="author" content="Idée’Reach Digital">
 
+<!-- SEO SOCIAL -->
+<meta property="og:title" content="Idée’Reach Digital | Donnez une image professionnelle à votre business">
+<meta property="og:description" content="Solutions digitales modernes pour renforcer votre crédibilité, valoriser votre image et attirer plus de clients.">
+<meta property="og:image" content="preview.jpg">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_SN">
+
+<link rel="icon" href="favicon.ico">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
@@ -21,44 +27,103 @@
   --gray:#64748b;
 }
 *{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Roboto,Arial}
-body{background:#f1f5f9;color:#020617;line-height:1.7}
 html{scroll-behavior:smooth}
+body{background:#f1f5f9;color:#020617;line-height:1.7}
 a{text-decoration:none;color:inherit}
+
+/* LOADER */
+.loader{
+  position:fixed;inset:0;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+  animation:hideLoader .8s ease forwards;
+  animation-delay:2.6s;
+}
+.loader h1{
+  color:#fff;
+  font-size:2.2rem;
+  letter-spacing:4px;
+  animation:textAnim 2.6s ease;
+}
+@keyframes textAnim{
+  0%{opacity:0;transform:translateY(30px)}
+  40%{opacity:1}
+  100%{opacity:0;transform:translateY(-30px)}
+}
+@keyframes hideLoader{to{opacity:0;visibility:hidden}}
 
 /* NAV */
 nav{
-  position:fixed;top:0;width:100%;
+  position:fixed;
+  top:0;width:100%;
   background:#ffffffee;
+  backdrop-filter:blur(10px);
   border-bottom:1px solid #e2e8f0;
   z-index:1000;
 }
 .nav{
-  max-width:1200px;margin:auto;
-  padding:15px 20px;
-  display:flex;justify-content:space-between;align-items:center;
+  max-width:1200px;
+  margin:auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-.nav ul{display:flex;gap:25px;list-style:none}
-.nav a:hover{color:var(--primary)}
+.logo img{height:46px}
+.nav ul{list-style:none;display:flex;gap:25px}
+.nav ul a:hover{color:var(--primary)}
+.menu-toggle{display:none;font-size:26px;cursor:pointer}
+
+@media(max-width:900px){
+  .menu-toggle{display:block}
+  .nav ul{
+    position:fixed;inset:0;
+    background:#020617;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transform:translateY(-100%);
+    transition:.4s;
+  }
+  .nav ul.active{transform:translateY(0)}
+  .nav ul a{color:#fff;font-size:1.5rem}
+}
 
 /* HERO */
 header{
   padding:150px 20px 110px;
-  background:#ffffff;
+  background:#fff;
 }
 .hero{
-  max-width:1100px;margin:auto;
-  display:grid;grid-template-columns:1.2fr .8fr;
-  gap:60px;align-items:center;
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:60px;
+  align-items:center;
 }
-.hero h1{font-size:2.8rem;margin-bottom:20px}
+.hero h1{font-size:2.7rem;margin-bottom:20px}
 .hero span{color:var(--primary)}
-.hero p{color:var(--gray);max-width:520px}
+.hero p{color:var(--gray)}
 .btn{
-  display:inline-block;margin-top:25px;
-  padding:14px 32px;
+  display:inline-block;
+  margin-top:25px;
+  padding:16px 36px;
   background:var(--primary);
-  color:#fff;border-radius:6px;
+  color:#fff;
+  border-radius:6px;
   font-weight:600;
+}
+.hero-logo{max-width:300px;width:100%}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;text-align:center}
+  .hero h1{font-size:2rem}
+  .btn{width:100%}
+  .hero-logo{margin:auto}
 }
 
 /* SECTIONS */
@@ -66,87 +131,97 @@ section{padding:100px 20px}
 .container{max-width:1200px;margin:auto}
 .title{text-align:center;font-size:2.2rem;margin-bottom:60px}
 
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
 
-/* CARDS */
 .card{
-  background:#fff;padding:35px;
-  border-radius:12px;border:1px solid #e2e8f0;
-}
-.card i{font-size:34px;color:var(--primary);margin-bottom:15px}
-
-/* PORTFOLIO */
-.project{
-  background:#fff;border-radius:12px;
+  background:#fff;
+  padding:34px;
+  border-radius:16px;
   border:1px solid #e2e8f0;
-  overflow:hidden;
+  transition:.3s;
 }
-.project img{width:100%;display:block}
-.project div{padding:20px}
-.project h4{margin-bottom:8px}
-
-/* TESTIMONIALS */
-.testimonial{
-  background:#fff;padding:30px;
-  border-radius:12px;border:1px solid #e2e8f0;
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.08);
 }
-.testimonial p{color:var(--gray)}
-.testimonial strong{display:block;margin-top:15px}
+.card i{
+  font-size:34px;
+  color:var(--primary);
+  margin-bottom:15px;
+}
 
 /* CONTACT */
 form{
-  max-width:600px;margin:auto;
-  background:#fff;padding:45px;
-  border-radius:12px;border:1px solid #e2e8f0;
+  max-width:600px;
+  margin:auto;
+  background:#fff;
+  padding:45px;
+  border-radius:16px;
 }
 input,textarea{
-  width:100%;padding:14px;
+  width:100%;
+  padding:14px;
   margin-bottom:16px;
-  border-radius:6px;border:1px solid #cbd5f5;
+  border-radius:6px;
+  border:1px solid #cbd5f5;
 }
 textarea{resize:none;height:140px}
 button{
-  width:100%;padding:14px;
-  background:var(--primary);color:#fff;
-  border:none;border-radius:6px;
+  width:100%;
+  padding:14px;
+  background:var(--primary);
+  color:white;
+  border:none;
+  border-radius:6px;
   font-weight:600;
-}
-
-/* MAP */
-.map iframe{
-  width:100%;height:360px;
-  border:0;border-radius:12px;
 }
 
 /* FOOTER */
 footer{
-  background:#020617;color:#cbd5f5;
-  padding:55px 20px;text-align:center;
+  background:#020617;
+  color:#cbd5f5;
+  padding:55px 20px;
+  text-align:center;
 }
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .hero h1{font-size:2.2rem}
+/* WHATSAPP */
+.wa-float{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:26px;
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 </style>
 </head>
 
 <body>
 
+<div class="loader">
+  <h1>WELCOME / BIENVENUE</h1>
+</div>
+
 <nav>
   <div class="nav">
-    <strong>Idée'Reach DIGITAL</strong>
-    <ul>
+    <div class="logo">
+      <img src="logo.png" alt="Idée’Reach Digital">
+    </div>
+    <div class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></div>
+    <ul id="menu">
       <li><a href="#home">Accueil</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Réalisations</a></li>
-      <li><a href="#avis">Avis</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -155,139 +230,97 @@ footer{
 <header id="home">
   <div class="hero">
     <div>
-      <h1>Agence digitale <span>professionnelle</span> au Sénégal</h1>
+      <h1><span>Idée’Reach Digital</span></h1>
+      <p><strong>Donnez une image professionnelle à votre business</strong></p>
       <p>
-        Idée’Reach DIGITAL est une agence <strong>100 % virtuelle</strong>
-        spécialisée dans la création de sites web, logos,
-        identités visuelles et CV professionnels.
-        <br><br>
-        Nous accompagnons nos clients à <strong>Dakar, Mboro et Darou Khoudoss</strong>.
+        Nous concevons des solutions digitales modernes pour renforcer votre crédibilité,
+        valoriser votre image et attirer durablement de nouveaux clients.
       </p>
-      <a class="btn" href="https://wa.me/221774567934">Discuter sur WhatsApp</a>
+      <a class="btn" href="https://wa.me/221774567934">💬 Discuter sur WhatsApp</a>
     </div>
-    <img src="logo.png" alt="Idée'Reach DIGITAL" style="width:100%;max-width:380px">
+    <img src="logo.png" class="hero-logo" alt="Idée’Reach Digital">
   </div>
 </header>
 
-<!-- SERVICES -->
+<section>
+  <div class="container">
+    <p style="text-align:center;color:#64748b;font-size:1.1rem;max-width:900px;margin:auto">
+      🎓 Étudiants et jeunes professionnels, nous concevons des
+      <strong>CV modernes, professionnels et percutants</strong>,
+      pensés pour valoriser votre profil et faire la différence dès le premier regard.
+    </p>
+  </div>
+</section>
+
 <section id="services">
   <div class="container">
     <h2 class="title">Nos services</h2>
     <div class="grid">
       <div class="card">
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>Création de sites web</h3>
-        <p>Sites vitrines modernes, rapides et optimisés pour Google.</p>
-      </div>
-      <div class="card">
-        <i class="fa-solid fa-pen-nib"></i>
-        <h3>Identité visuelle</h3>
-        <p>Logos professionnels et supports de communication crédibles.</p>
-      </div>
-      <div class="card">
         <i class="fa-solid fa-file-lines"></i>
-        <h3>CV professionnels</h3>
-        <p>CV clairs et structurés pour maximiser vos chances d’entretien.</p>
+        <h3>Création de CV professionnels modernes</h3>
+        <p>Des CV clairs, élégants et adaptés aux exigences actuelles du marché.</p>
       </div>
+
       <div class="card">
-        <i class="fa-solid fa-camera"></i>
-        <h3>Visuels & contenus</h3>
-        <p>Affiches, visuels réseaux sociaux et contenus digitaux.</p>
+        <i class="fa-solid fa-palette"></i>
+        <h3>Design de logos & affiches modernes</h3>
+        <p>Une identité visuelle forte pour renforcer votre image de marque.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-laptop-code"></i>
+        <h3>Création de sites web professionnels</h3>
+        <p>Des sites innovants, performants et orientés résultats.</p>
+      </div>
+
+      <div class="card">
+        <i class="fa-solid fa-video"></i>
+        <h3>Montage vidéo & retouche photo</h3>
+        <p>Des contenus visuels de haute qualité pour maximiser votre impact.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- REALISATIONS -->
-<section id="portfolio">
+<section>
   <div class="container">
-    <h2 class="title">Nos réalisations</h2>
-    <div class="grid">
-
-      <div class="project">
-        <img src="projet-site.jpg" alt="">
-        <div>
-          <h4>Site web – Entreprise de services</h4>
-          <p>Site vitrine professionnel, responsive et optimisé SEO.<br>
-          <strong>Localisation :</strong> Dakar</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="projet-logo.jpg" alt="">
-        <div>
-          <h4>Logo & branding</h4>
-          <p>Création d’une identité visuelle moderne et crédible.<br>
-          <strong>Localisation :</strong> Mboro</p>
-        </div>
-      </div>
-
-      <div class="project">
-        <img src="projet-cv.jpg" alt="">
-        <div>
-          <h4>CV professionnel</h4>
-          <p>CV structuré et moderne pour recherche d’emploi.<br>
-          <strong>Localisation :</strong> Darou Khoudoss</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- AVIS -->
-<section id="avis">
-  <div class="container">
-    <h2 class="title">Ils nous font confiance</h2>
-    <div class="grid">
-
-      <div class="testimonial">
-        <p>“Travail sérieux, communication claire et résultat très professionnel.”</p>
-        <strong>Responsable d’entreprise – Dakar</strong>
-      </div>
-
-      <div class="testimonial">
-        <p>“Mon CV a été bien structuré et j’ai rapidement eu des entretiens.”</p>
-        <strong>Candidat emploi – Mboro</strong>
-      </div>
-
-      <div class="testimonial">
-        <p>“Logo moderne, livré rapidement. Je recommande sans hésiter.”</p>
-        <strong>Entrepreneur – Darou Khoudoss</strong>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <h2 class="title">Contact</h2>
-
-  <form action="mailto:Ifrahimaba96@gmail.com" method="post" enctype="text/plain">
-    <input type="text" name="Nom" placeholder="Nom complet" required>
-    <input type="email" name="Email" placeholder="Adresse email" required>
-    <textarea name="Message" placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer le message</button>
-  </form>
-
-  <div class="container map" style="margin-top:60px">
-    <iframe
-      src="https://www.google.com/maps?q=14.6937,-17.4441&output=embed">
-    </iframe>
-    <p style="text-align:center;margin-top:15px;color:#64748b">
-      📍 Agence digitale <strong>100 % virtuelle</strong> – Intervention partout au Sénégal
+    <p style="text-align:center;font-size:1.15rem;color:#020617;max-width:900px;margin:auto">
+      Chez <strong>Idée’Reach Digital</strong>, chaque création est conçue avec rigueur et stratégie
+      afin <strong>d’impacter, convaincre et générer des résultats concrets</strong>.
     </p>
   </div>
 </section>
 
+<section id="contact">
+  <h2 class="title">Contact</h2>
+  <form action="https://formsubmit.co/ifrahimaba96@gmail.com" method="POST">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="text" name="name" placeholder="Nom complet" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Votre message" required></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+</section>
+
 <footer>
-  <p>
-    Idée'Reach DIGITAL – Agence digitale virtuelle<br>
-    Dakar • Mboro • Darou Khoudoss
-  </p>
-  © 2025 – Tous droits réservés
+  © 2025 – Idée’Reach Digital • Sénégal  
+  <br>Dakar • Thiès • Mboro  
+  <br>📞 +221 77 456 79 34
 </footer>
+
+<a href="https://wa.me/221774567934" class="wa-float">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+const toggle=document.getElementById("menuToggle");
+const menu=document.getElementById("menu");
+toggle.onclick=()=>menu.classList.toggle("active");
+menu.querySelectorAll("a").forEach(link=>{
+  link.onclick=()=>menu.classList.remove("active");
+});
+</script>
 
 </body>
 </html>
