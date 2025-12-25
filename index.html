@@ -2,323 +2,331 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<title>Idée’Reach Digital | Agence digitale au Sénégal</title>
+<title>Idée’Reach Digital | Solutions Digitales à Impact</title>
 
-<meta name="description" content="Idée’Reach Digital propose des solutions digitales modernes : CV professionnels, logos, affiches, sites web et contenus visuels au Sénégal.">
-<meta name="keywords" content="Idée’Reach Digital, CV professionnel Sénégal, création site web Sénégal, logo moderne, agence digitale Sénégal">
+<meta name="description" content="Agence digitale moderne au Sénégal. Sites web performants, CV professionnels, branding et design orientés résultats.">
+<meta name="keywords" content="agence digitale Sénégal, création site web Dakar, CV professionnel Sénégal, branding digital">
 <meta name="author" content="Idée’Reach Digital">
 
-<!-- SEO SOCIAL -->
-<meta property="og:title" content="Idée’Reach Digital | Donnez une image professionnelle à votre business">
-<meta property="og:description" content="Solutions digitales modernes pour renforcer votre crédibilité, valoriser votre image et attirer plus de clients.">
-<meta property="og:image" content="preview.jpg">
+<!-- SEO Local -->
+<meta name="geo.region" content="SN">
+<meta name="geo.placename" content="Dakar, Sénégal">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Idée’Reach Digital | Performance Digitale">
+<meta property="og:description" content="Solutions digitales modernes pour entreprises et professionnels.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_SN">
 
-<link rel="icon" href="favicon.ico">
+<!-- Google Business / Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LocalBusiness",
+  "name":"Idée’Reach Digital",
+  "image":"https://ideereachdigital.com/logo.png",
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Dakar",
+    "addressCountry":"SN"
+  },
+  "telephone":"+221774567934",
+  "url":"https://ideereachdigital.com"
+}
+</script>
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root{
-  --primary:#0a5cff;
+  --primary:#2563eb;
   --dark:#020617;
-  --gray:#64748b;
+  --light:#f8fafc;
+  --muted:#64748b;
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Roboto,Arial}
-html{scroll-behavior:smooth}
-body{background:#f1f5f9;color:#020617;line-height:1.7}
-a{text-decoration:none;color:inherit}
 
-/* LOADER */
-.loader{
-  position:fixed;inset:0;
-  background:#020617;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Segoe UI,Roboto,Arial}
+body{background:var(--light);color:var(--dark);line-height:1.8}
+
+/* ================= OPENING ANIMATION ================= */
+#intro{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at center,#020617,#000);
   display:flex;
   align-items:center;
   justify-content:center;
   z-index:9999;
-  animation:hideLoader .8s ease forwards;
-  animation-delay:2.6s;
+  animation:introFadeOut 1s ease forwards;
+  animation-delay:2.4s;
 }
-.loader h1{
+.intro-content{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  animation:introZoom 1.6s ease forwards;
+}
+.intro-content img{
+  width:110px;
+  filter:drop-shadow(0 0 18px rgba(37,99,235,.45));
+  animation:introGlow 2.5s ease-in-out infinite;
+}
+.intro-content span{
   color:#fff;
-  font-size:2.2rem;
-  letter-spacing:4px;
-  animation:textAnim 2.6s ease;
+  font-weight:700;
+  letter-spacing:2px;
+  font-size:.95rem;
+  opacity:.85;
 }
-@keyframes textAnim{
-  0%{opacity:0;transform:translateY(30px)}
-  40%{opacity:1}
-  100%{opacity:0;transform:translateY(-30px)}
+@keyframes introZoom{
+  from{opacity:0;transform:scale(.85)}
+  to{opacity:1;transform:scale(1)}
 }
-@keyframes hideLoader{to{opacity:0;visibility:hidden}}
+@keyframes introGlow{
+  0%,100%{filter:drop-shadow(0 0 14px rgba(37,99,235,.35))}
+  50%{filter:drop-shadow(0 0 26px rgba(37,99,235,.55))}
+}
+@keyframes introFadeOut{
+  to{opacity:0;visibility:hidden}
+}
 
-/* NAV */
+/* ================= NAV ================= */
 nav{
-  position:fixed;
-  top:0;width:100%;
-  background:#ffffffee;
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid #e2e8f0;
+  position:fixed;top:0;width:100%;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid #e5e7eb;
   z-index:1000;
 }
 .nav{
-  max-width:1200px;
-  margin:auto;
+  max-width:1200px;margin:auto;
   padding:14px 20px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display:flex;justify-content:space-between;align-items:center;
 }
-.logo img{height:46px}
-.nav ul{list-style:none;display:flex;gap:25px}
-.nav ul a:hover{color:var(--primary)}
-.menu-toggle{display:none;font-size:26px;cursor:pointer}
+.logo img{height:42px}
+.menu-toggle{display:none;font-size:26px}
+.nav ul{display:flex;gap:26px;list-style:none}
+.nav ul a{text-decoration:none;color:#020617;font-weight:600}
 
-@media(max-width:900px){
-  .menu-toggle{display:block}
-  .nav ul{
-    position:fixed;inset:0;
-    background:#020617;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    transform:translateY(-100%);
-    transition:.4s;
-  }
-  .nav ul.active{transform:translateY(0)}
-  .nav ul a{color:#fff;font-size:1.5rem}
-}
-
-/* HERO */
+/* ================= HERO ================= */
 header{
-  padding:150px 20px 110px;
-  background:#fff;
+  padding:150px 20px 120px;
+  background:radial-gradient(circle at top right,#e0e7ff,transparent 45%),#fff;
 }
 .hero{
-  max-width:1100px;
-  margin:auto;
+  max-width:1150px;margin:auto;
   display:grid;
   grid-template-columns:1.2fr .8fr;
   gap:60px;
   align-items:center;
 }
-.hero h1{font-size:2.7rem;margin-bottom:20px}
-.hero span{color:var(--primary)}
-.hero p{color:var(--gray)}
+.hero-title{
+  font-size:2.2rem;
+  font-weight:900;
+  letter-spacing:-0.4px;
+  line-height:1.2;
+  opacity:0;
+  transform:translateY(20px);
+  animation:fadeUp .8s ease forwards;
+}
+.hero-title span{
+  color:var(--primary);
+  text-shadow:0 0 10px rgba(37,99,235,.25);
+  animation:glow 3s ease-in-out infinite;
+}
+.hero p{
+  margin-top:16px;
+  color:var(--muted);
+  font-size:1.05rem;
+  opacity:0;
+  animation:fadeUp .8s ease .15s forwards;
+}
 .btn{
   display:inline-block;
-  margin-top:25px;
-  padding:16px 36px;
-  background:var(--primary);
-  color:#fff;
-  border-radius:6px;
-  font-weight:600;
+  margin-top:30px;
+  padding:18px 42px;
+  background:linear-gradient(135deg,#2563eb,#1e40af);
+  color:white;
+  border-radius:12px;
+  font-weight:700;
+  text-decoration:none;
+  opacity:0;
+  animation:fadeUp .8s ease .3s forwards, float 3s ease-in-out infinite;
 }
-.hero-logo{max-width:300px;width:100%}
-
+.btn:hover{transform:translateY(-3px)}
+.hero img{max-width:280px;width:100%;opacity:.95}
 @media(max-width:900px){
+  header{padding-top:130px}
   .hero{grid-template-columns:1fr;text-align:center}
-  .hero h1{font-size:2rem}
+  .hero-title{font-size:1.9rem}
   .btn{width:100%}
-  .hero-logo{margin:auto}
+  .hero img{margin:auto}
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{padding:100px 20px}
 .container{max-width:1200px;margin:auto}
-.title{text-align:center;font-size:2.2rem;margin-bottom:60px}
+.title{
+  text-align:center;
+  font-size:2.2rem;
+  font-weight:800;
+  margin-bottom:60px;
+}
 
+/* ================= GRID ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
-
 .card{
-  background:#fff;
-  padding:34px;
-  border-radius:16px;
-  border:1px solid #e2e8f0;
-  transition:.3s;
+  background:white;
+  padding:40px;
+  border-radius:22px;
+  border:1px solid #e5e7eb;
+  transition:.35s;
 }
 .card:hover{
   transform:translateY(-8px);
-  box-shadow:0 20px 40px rgba(0,0,0,.08);
+  box-shadow:0 25px 45px rgba(0,0,0,.08);
 }
-.card i{
-  font-size:34px;
-  color:var(--primary);
-  margin-bottom:15px;
-}
+.card i{font-size:36px;color:var(--primary);margin-bottom:14px}
 
-/* CONTACT */
-form{
-  max-width:600px;
-  margin:auto;
-  background:#fff;
-  padding:45px;
-  border-radius:16px;
-}
-input,textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:16px;
-  border-radius:6px;
-  border:1px solid #cbd5f5;
-}
-textarea{resize:none;height:140px}
-button{
-  width:100%;
-  padding:14px;
-  background:var(--primary);
+/* ================= CTA ================= */
+.cta{
+  background:#020617;
   color:white;
-  border:none;
-  border-radius:6px;
-  font-weight:600;
+  text-align:center;
+  padding:110px 20px;
 }
+.cta h2{font-size:2.4rem}
+.cta p{color:#cbd5f5;margin-top:12px}
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   background:#020617;
-  color:#cbd5f5;
-  padding:55px 20px;
+  color:#94a3b8;
   text-align:center;
+  padding:50px 20px;
+}
+footer img{
+  height:38px;
+  margin-bottom:12px;
+  opacity:.9;
 }
 
-/* WHATSAPP */
-.wa-float{
+/* ================= WHATSAPP FLOAT ================= */
+.wa{
   position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25d366;
-  width:58px;
-  height:58px;
+  bottom:20px;right:20px;
+  width:64px;height:64px;
   border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:white;
-  font-size:26px;
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  background:#25d366;
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;color:white;
+  box-shadow:0 15px 35px rgba(0,0,0,.3);
+  animation:float 3s ease-in-out infinite;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+}
+@keyframes fadeUp{
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes glow{
+  0%,100%{text-shadow:0 0 10px rgba(37,99,235,.25)}
+  50%{text-shadow:0 0 18px rgba(37,99,235,.35)}
 }
 </style>
 </head>
 
 <body>
 
-<div class="loader">
-  <h1>WELCOME / BIENVENUE</h1>
+<!-- Opening Animation -->
+<div id="intro">
+  <div class="intro-content">
+    <img src="logo.png" alt="Idée’Reach Digital">
+    <span>Idée’Reach Digital</span>
+  </div>
 </div>
 
 <nav>
   <div class="nav">
-    <div class="logo">
-      <img src="logo.png" alt="Idée’Reach Digital">
-    </div>
-    <div class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></div>
+    <div class="logo"><img src="logo.png" alt="Idée’Reach Digital"></div>
+    <div class="menu-toggle" id="toggle"><i class="fa-solid fa-bars"></i></div>
     <ul id="menu">
-      <li><a href="#home">Accueil</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#cibles">Cibles</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 </nav>
 
-<header id="home">
+<header>
   <div class="hero">
     <div>
-      <h1><span>Idée’Reach Digital</span></h1>
-      <p><strong>Donnez une image professionnelle à votre business</strong></p>
+      <h1 class="hero-title">Idée'Reach <span>Digital</span></h1>
       <p>
-        Nous concevons des solutions digitales modernes pour renforcer votre crédibilité,
-        valoriser votre image et attirer durablement de nouveaux clients.
+        Nous concevons des solutions digitales modernes pour renforcer votre crédibilité
+        et accélérer votre croissance.
       </p>
-      <a class="btn" href="https://wa.me/221774567934">💬 Discuter sur WhatsApp</a>
+      <a class="btn" href="https://wa.me/221774567934?text=Bonjour%20Id%C3%A9e%E2%80%99Reach%20Digital,%20je%20souhaite%20un%20devis%20pour%20un%20projet%20digital." target="_blank">
+        Demander un devis
+      </a>
     </div>
-    <img src="logo.png" class="hero-logo" alt="Idée’Reach Digital">
+    <img src="logo.png" alt="Agence digitale Sénégal">
   </div>
 </header>
 
-<section>
-  <div class="container">
-    <p style="text-align:center;color:#64748b;font-size:1.1rem;max-width:900px;margin:auto">
-      🎓 Étudiants et jeunes professionnels, nous concevons des
-      <strong>CV modernes, professionnels et percutants</strong>,
-      pensés pour valoriser votre profil et faire la différence dès le premier regard.
-    </p>
-  </div>
-</section>
-
 <section id="services">
-  <div class="container">
-    <h2 class="title">Nos services</h2>
-    <div class="grid">
-      <div class="card">
-        <i class="fa-solid fa-file-lines"></i>
-        <h3>Création de CV professionnels modernes</h3>
-        <p>Des CV clairs, élégants et adaptés aux exigences actuelles du marché.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-palette"></i>
-        <h3>Design de logos & affiches modernes</h3>
-        <p>Une identité visuelle forte pour renforcer votre image de marque.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-laptop-code"></i>
-        <h3>Création de sites web professionnels</h3>
-        <p>Des sites innovants, performants et orientés résultats.</p>
-      </div>
-
-      <div class="card">
-        <i class="fa-solid fa-video"></i>
-        <h3>Montage vidéo & retouche photo</h3>
-        <p>Des contenus visuels de haute qualité pour maximiser votre impact.</p>
-      </div>
-    </div>
+  <h2 class="title">Nos expertises</h2>
+  <div class="container grid">
+    <div class="card"><i class="fa-solid fa-code"></i><h3>Sites web performants</h3><p>Rapides, sécurisés et optimisés Google.</p></div>
+    <div class="card"><i class="fa-solid fa-file"></i><h3>CV professionnels</h3><p>Design clair, impact immédiat.</p></div>
+    <div class="card"><i class="fa-solid fa-layer-group"></i><h3>Branding & design</h3><p>Identité visuelle moderne et crédible.</p></div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <p style="text-align:center;font-size:1.15rem;color:#020617;max-width:900px;margin:auto">
-      Chez <strong>Idée’Reach Digital</strong>, chaque création est conçue avec rigueur et stratégie
-      afin <strong>d’impacter, convaincre et générer des résultats concrets</strong>.
-    </p>
+<section id="cibles">
+  <h2 class="title">À qui s’adressent nos solutions</h2>
+  <div class="container grid">
+    <div class="card"><i class="fa-solid fa-user-graduate"></i><p>Étudiants & jeunes professionnels</p></div>
+    <div class="card"><i class="fa-solid fa-briefcase"></i><p>Entrepreneurs & PME</p></div>
+    <div class="card"><i class="fa-solid fa-building"></i><p>Entreprises & organisations</p></div>
   </div>
 </section>
 
-<section id="contact">
-  <h2 class="title">Contact</h2>
-  <form action="https://formsubmit.co/ifrahimaba96@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="text" name="name" placeholder="Nom complet" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <textarea name="message" placeholder="Votre message" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
+<section class="cta" id="contact">
+  <h2>Transformons votre image digitale</h2>
+  <p>Contactez-nous et lancez votre projet dès aujourd’hui.</p>
+  <a class="btn" href="https://wa.me/221774567934?text=Bonjour%20Id%C3%A9e%E2%80%99Reach%20Digital,%20je%20souhaite%20discuter%20d%E2%80%99un%20projet%20digital." target="_blank">
+    Contact WhatsApp
+  </a>
 </section>
 
 <footer>
-  © 2025 – Idée’Reach Digital • Sénégal  
-  <br>Dakar • Thiès • Mboro  
-  <br>📞 +221 77 456 79 34
+  <img src="logo.png" alt="Idée’Reach Digital">
+  <p>© 2025 – Idée’Reach Digital • Sénégal</p>
 </footer>
 
-<a href="https://wa.me/221774567934" class="wa-float">
+<a class="wa" href="https://wa.me/221774567934?text=Bonjour%20Id%C3%A9e%E2%80%99Reach%20Digital,%20je%20souhaite%20des%20informations%20sur%20vos%20services." target="_blank">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
 <script>
-const toggle=document.getElementById("menuToggle");
+const toggle=document.getElementById("toggle");
 const menu=document.getElementById("menu");
 toggle.onclick=()=>menu.classList.toggle("active");
-menu.querySelectorAll("a").forEach(link=>{
-  link.onclick=()=>menu.classList.remove("active");
+
+/* Remove intro animation after load */
+window.addEventListener("load",()=>{
+  setTimeout(()=>{document.getElementById("intro").remove()},3500);
 });
 </script>
 
